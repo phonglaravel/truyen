@@ -1,0 +1,432 @@
+.navbar{
+    display: block !important;
+    height: auto !important;
+    text-align: left !important;
+}
+.dropdown-menu{
+    background-color: #14425d !important;
+    
+}
+.dropdown-menu a{
+    color: #ececec !important;
+}
+
+.navbar-breadcrumb {
+    height: 30px;
+    background-color: #ececec;
+    border-top: 1px solid #476171;
+}
+.breadcrumb-container {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.hot-list-tittle{
+    text-align: left;
+    height: 40px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #CCC;
+    position: relative;
+}
+.hot-list-tittle h2{
+    font-family: 'Roboto Condensed',Tahoma,sans-serif;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    max-width: 100%;
+    white-space: nowrap;
+   
+    border-bottom: 1px solid #4E4E4E;
+}
+.hot-list-tittle a{
+    text-decoration: none;
+    box-shadow: 0 1px #4E4E4E;
+    padding: 6px;
+    color: #4E4E4E;
+    font-size: 20px;
+}
+.hot-list-tittle a:hover{
+    text-decoration: none;
+    box-shadow: 0 1px #4E4E4E;
+    padding: 6px;
+    color: #4E4E4E;
+    font-size: 20px;
+}
+.hot-list-tittle i{
+    font-size: 15px;
+}
+#dropdownMenuButton1{
+    background-color: #ffffff;
+    color: black;
+    font-size: 18px;
+    border-radius: 0px;
+    
+    font-family: 'Roboto Condensed',Tahoma,sans-serif !important;
+    text-align: left;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    text-transform: uppercase;
+    box-shadow: none;
+    
+ 	
+}
+.hot-list-card .item {
+    float: left;
+    margin: 10px 10px 0 10px;
+   
+    position: relative;
+    transition-duration: .3s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    width: 100%;
+}
+.hot-list-card .item:hover{
+    	transform: scaleX(105%) scaleY(105%);
+}
+.hot-list-card .item .item-img {
+    box-shadow: 0 1px 2px #b5b5b5;
+    
+    overflow: hidden;
+    width: 100%;
+ }
+ .hot-list-card .title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #f4f4f4;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 0;
+    text-shadow: 1px 2px 2px #000;
+  
+}
+.hot-list-card .title h3{
+	font-size: 12px;
+    text-align: center;
+    font-family: 'Roboto Condensed',Tahoma,sans-serif;
+}
+.row-item{
+    overflow: hidden;
+    white-space: nowrap;
+    
+    position: relative;
+    width: 100%;
+}
+
+
+.new-tittle{
+    text-align: left;
+    height: 40px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #CCC;
+    position: relative;
+    margin-top: 10px;
+}
+.new-tittle h2{
+    font-family: 'Roboto Condensed',Tahoma,sans-serif;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    max-width: 100%;
+    white-space: nowrap;
+   
+    border-bottom: 1px solid #4E4E4E;
+}
+.new-tittle a{
+    text-decoration: none;
+    box-shadow: 0 1px #4E4E4E;
+    padding: 6px;
+    color: #4E4E4E;
+    font-size: 20px;
+}
+.new-tittle a:hover{
+    text-decoration: none;
+    box-shadow: 0 1px #4E4E4E;
+    padding: 6px;
+    color: #4E4E4E;
+    font-size: 20px;
+}
+.new-tittle i{
+    font-size: 15px;
+}
+#dropdownMenuButton2{
+    background-color: #ffffff;
+    color: black;
+    font-size: 18px;
+    border-radius: 0px;
+    
+    font-family: 'Roboto Condensed',Tahoma,sans-serif !important;
+    text-align: left;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    text-transform: uppercase;
+    box-shadow: none;
+    
+ 	
+}
+.thongtin-item{
+    text-align: left;
+    height: 40px;
+    
+    border-bottom: 1px dashed #CCC;
+    
+    position: relative;
+    
+    font-size: 14px;
+}
+
+.thongtin-item  a{
+    text-decoration: none;
+    box-shadow: 0 0px #4E4E4E;
+    height: 20px;
+    color: #4E4E4E;
+    font-size: 14px;
+    padding: 0px;
+    
+    position: relative;
+    text-align: left;
+    
+}
+.thongtin-item  a:hover{
+    text-decoration: none;
+    box-shadow: 0 0px hsl(88, 74%, 40%);
+    
+    color: #2bd414;
+    font-size: 14px;
+    
+    
+    
+}
+.thongtin-item h3{
+    font-size: 14px;
+    margin-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 40px;
+    max-width: 100%;
+    white-space: nowrap;
+   
+   
+    
+   
+  
+}
+.ab1{
+    border-right: 1px dashed #CCC;
+}
+.ab2{
+    border-right: 1px dashed #CCC;
+}
+.ab3{
+    border-right: 1px dashed #CCC;
+}
+.dangdoc{
+    background-color: #ecf0f1;
+    border: 1px solid #CCC;
+    margin-top: 11px;
+    padding-right: 14px;
+    padding-left: 6px; 
+    overflow: hidden;
+    
+}
+.dangdoc-tittle{
+    text-align: left;
+    border-bottom: 0.2px solid #CCC;
+    height: 38px;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 16px;
+
+}
+.dangdoc-tittle h2{
+    font-size: 16px;
+    font-family: 'Roboto Condensed',Tahoma,sans-serif !important;
+    color: #4E4E4E;
+    text-transform: uppercase;
+    padding-top: 7px;
+    border-bottom: 1px solid #4E4E4E;
+    height: 38px;
+   padding-left: 5px;
+    
+   
+}
+.dangdoc-item{
+    border-bottom: 1px dashed #CCC;
+    height: 40px;
+    padding-left: 5px;
+    display: block;
+}
+.dangdoc-item h3{
+    text-align: left;
+    height: 40px;
+    box-sizing: border-box;
+    
+    
+    
+    position: relative;
+    
+    font-size: 14px;
+    padding-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;    
+}
+.dangdoc-item a{
+    text-decoration: none;
+    text-align: left;
+    position: relative;
+
+}
+.abc{
+    border-right: 1px dashed #CCC;
+    
+}
+.abc-cuoi{
+    border-bottom: 0ch;}
+
+
+.theloai{
+    background-color: #ecf0f1;
+    border: 1px solid #CCC;
+    margin-top: 30px;
+    margin-left: 5px;
+    
+    
+    
+}
+.theloai-title{
+    text-align: left;
+    border-bottom: 0.2px solid #CCC;
+    height: 38px;
+    
+}
+.theloai-title h2{
+    font-size: 16px;
+    font-family: 'Roboto Condensed',Tahoma,sans-serif !important;
+    color: #4E4E4E;
+    text-transform: uppercase;
+    padding-top: 7px;
+    border-bottom: 1px solid #4E4E4E;
+    height: 38px;
+   
+}
+.theloai-danhsach a{
+    text-decoration: none;
+    box-shadow: 0 0px #4E4E4E;
+    height: 20px;
+    color: #4E4E4E;
+    font-size: 14px;
+   padding-left: 3px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+    font-size: 16px;
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    margin-left: 5px;
+
+}
+.dahoanthanh{
+    margin-top: 30px;
+    
+}
+.done-tittle{
+    text-align: left;
+    height: 40px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #CCC;
+    position: relative;
+    margin-top: 10px;
+}
+.done-tittle h2{
+    font-family: 'Roboto Condensed',Tahoma,sans-serif;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    max-width: 100%;
+    white-space: nowrap;
+   
+    border-bottom: 1px solid #4E4E4E;
+}
+.done-tittle a{
+    text-decoration: none;
+    box-shadow: 0 1px #4E4E4E;
+    padding: 6px;
+    color: #4E4E4E;
+    font-size: 20px;
+}
+.done-tittle a:hover{
+    text-decoration: none;
+    box-shadow: 0 1px #4E4E4E;
+    padding: 6px;
+    color: #4E4E4E;
+    font-size: 20px;
+}
+.done-tittle i{
+    font-size: 15px;
+}
+
+
+.done-list .done-item{
+    float: left;
+    margin: 10px 10px 0 10px;
+   
+    position: relative;
+    transition-duration: .3s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    width: 100%;
+}
+.done-list .done-item:hover{
+    transform: scaleX(105%) scaleY(105%);
+}
+.done-list .done-item .item-img{
+    width: 100%;
+    box-shadow: 0 1px #14425d;
+}
+.done-list .done-item .title{
+    margin-left: -5%;
+    width: 110%;
+    text-align: center;
+    height: 20px;    
+    text-decoration: none;
+
+}
+.done-list .done-item .title h3{
+    text-align: center;
+    padding-top: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    height: 20px;
+    color: #000;
+}
+.done-list .done-item a{
+   text-decoration: none;
+}
+.sochuongfull{
+    text-align: center;
+}
+ .sochuongfull small{
+    
+    padding : 4px;
+    background-color: #2bd414;
+    font-size: 10px;
+    height: 20px;
+    color: #000;
+    
+    border-radius: 5px;
+   
+}
+
+
+
+
+
+
+
+

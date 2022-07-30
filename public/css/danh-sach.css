@@ -1,0 +1,91 @@
+
+.tenvatacgia{
+    height: 90px;
+    border-bottom: 1px dashed #4E4E4E;
+    
+    display: table-row;
+    font-family: 'Roboto Condensed',Tahoma,sans-serif;
+    font-size: 15px;
+}
+.ohinhanh1{
+    height: 90px;
+    
+    display: table;
+    
+  
+    
+   
+    
+}
+.ohinhanh{
+    display: table-cell;
+    vertical-align: middle;
+}
+.cover{
+    max-width: 100%;
+    max-height: 100%;
+}
+  
+
+
+
+.truyenhot{
+    height: 90px;
+    height: 90px;
+    display: table;
+}
+.cangiua{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.itemhot-name i{
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1; 
+}
+.itemhot-name h3{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: inline;
+    letter-spacing: -1px;
+}
+.itemhot-name a{
+    color: #4E4E4E;
+    text-decoration: none;
+}
+.itemhot-name small{
+    border: 1px solid #4E4E4E;
+}
+
+
+.tacgia i{
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1; 
+}
+.tacgia p{
+    
+    display: inline;
+    font-style: italic;
+    font-weight: 400;
+}
+.chuong{
+    display: table;
+}
+.chuongcangiua{
+    vertical-align: middle;
+    display: table-cell;
+    margin-left: 2px;
+}
+
