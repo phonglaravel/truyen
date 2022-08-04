@@ -13,48 +13,34 @@ class IndexController extends Controller
 {
     public function home(Request $request)
     {
-        Carbon::setLocale('vi');
-    
-       
-        
+        Carbon::setLocale('vi');     
         $truyenhot = Truyen::with('danhmuctruyen')->where('truyen_noibat', 1)->take(12)->get();
-        $truyenhot5 = Truyen::with('danhmuctruyen')->where('truyen_noibat', 1)->take(5)->get();
-        
-        
-       
-        
+        $truyenhot5 = Truyen::with('danhmuctruyen')->where('truyen_noibat', 1)->take(5)->get();  
         $theloai = Danhmuc::orderBy('id', 'DESC')->get();
         $truyenmoi = Chapter::with('truyen')->orderBy('created_at', 'DESC')->take(25)->get();
-        $truyenfull = Truyen::with('chapter')->where('trangthai', 1)->take(12)->get();
-        
+        $truyenfull = Truyen::with('chapter')->where('trangthai', 1)->take(12)->get();  
         return view('page.index', compact('truyenhot','theloai', 'truyenmoi', 'truyenfull','truyenhot5'));
     }
-
     public function doctruyen($slug)
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
-        
+        $theloai = Danhmuc::orderBy('id', 'DESC')->get();        
         $truyen = Truyen::with('danhmuctruyen','thuocnhieudanhmuc')->where('slug_truyen', $slug)->where('kichhoat', 0)->first();
         $chapter = Chapter::orderBy('id', 'ASC')->where('truyen_id',$truyen->id)->paginate(50);
         // $chapter_dau = Chapter::with('truyen')->orderBy('id', 'ASC')->where('truyen_id',$truyen->id)->first();
         $chapter_moi = Chapter::orderBy('id', 'DESC')->where('truyen_id',$truyen->id)->take(5)->get();
         $chapdau = Chapter::orderBy('id','ASC')->where('truyen_id',$truyen->id)->first();
         $chapcuoi = Chapter::orderBy('id','DESC')->where('truyen_id',$truyen->id)->first();
-
         // $cungdanhmuc = Truyen::with('danhmuctruyen')->where('danhmuc_id', $truyen->danhmuctruyen->id)->whereNotIn('id',[$truyen->id]);
         return view('page.truyen', compact('truyen','theloai','chapter_moi','chapter','chapdau','chapcuoi'));
     }
     public function docchapter($slug)
-    {   
-       
+    {        
         $truyen = Chapter::with('truyen')->where('slug_chapter',$slug)->first();
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
-        
+        $theloai = Danhmuc::orderBy('id', 'DESC')->get();       
         $allchap = Chapter::with('truyen')->orderBy('id', 'ASC')->where('truyen_id', $truyen->truyen_id)->get();
         $nchap = Chapter::where('truyen_id', $truyen->truyen_id)->where('id', '>', $truyen->id)->min('slug_chapter');
         $pchap = Chapter::where('truyen_id', $truyen->truyen_id)->where('id', '<', $truyen->id)->max('slug_chapter');
-        $max_chap = Chapter::where('truyen_id', $truyen->truyen_id)->orderBy('chuong', 'DESC')->first();
-        
+        $max_chap = Chapter::where('truyen_id', $truyen->truyen_id)->orderBy('chuong', 'DESC')->first();      
         $min_chap = Chapter::where('truyen_id', $truyen->truyen_id)->orderBy('chuong', 'ASC')->first();
         return view('page.chapter', compact('theloai','allchap','truyen', 'nchap','pchap','max_chap', 'min_chap'));
     }
@@ -67,9 +53,7 @@ class IndexController extends Controller
         foreach ($truyentheloai as $item){
             $nhieutheloai[] = $item->truyen_id;
         }
-       $truyen = Truyen::with('chapter')->whereIn('id',$nhieutheloai)->orderBy('created_at', 'DESC')->get();
-       
-          
+       $truyen = Truyen::with('chapter')->whereIn('id',$nhieutheloai)->orderBy('created_at', 'DESC')->get();        
         return view('page.theloai', compact('theloai','theloaimain','truyen'));
     }
     public function search()
@@ -97,7 +81,6 @@ class IndexController extends Controller
     public function duoi100()
     {
         $theloai = Danhmuc::orderBy('id', 'DESC')->get();
-
         $alltruyen = Truyen::with('chapter')->orderBy('id', 'DESC')->get();
         $truyen = array();
         foreach($alltruyen as $key => $tr){
@@ -106,7 +89,6 @@ class IndexController extends Controller
             }
         }
         return view('page.toptruyen', compact('truyen','theloai'));
-
     }
     public function duoi500()
     {
@@ -119,7 +101,6 @@ class IndexController extends Controller
             }
         }
         return view('page.toptruyen', compact('truyen','theloai'));
-
     }
     public function tren500()
     {
@@ -132,13 +113,10 @@ class IndexController extends Controller
             }
         }
         return view('page.toptruyen', compact('truyen','theloai'));
-
-
     }
     public function tabdanhmuc(Request $request)
     {
-        $data = $request->all();
-        
+        $data = $request->all();    
         $theloaimain = Danhmuc::where('id',$data['danhmuc_id'])->first();
         $truyentheloai = Thuocdanhmuc::where('danhmuc_id',$theloaimain->id)->get();
         $nhieutheloai = [];
@@ -162,23 +140,17 @@ class IndexController extends Controller
             </a>
         </div>
     </div>';
-        }
-        
+        }  
         $output1 = '<h2>Truyện đang cập nhật</h2>';
         if($truyendanhmuc->count()==0){
             echo $output1;
-        }
-            
-        
+        }     
         else {
             echo $output;
-        }
-        
+        }       
     }
     public function chontheloai(Request $request)
     {
         $data = $request->all();
-    }
-    
-   
+    }  
 }

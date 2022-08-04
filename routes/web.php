@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//page
 Route::get('', [IndexController::class, 'home']);
 Route::get('/xemtruyen/{slug}', [IndexController::class, 'doctruyen'])->name('page.doctruyen');
 Route::get('/xemchapter/{slug}', [IndexController::class, 'docchapter'])->name('page.docchapter');
@@ -27,14 +27,11 @@ Route::get('/tag/{tag}', [IndexController::class, 'tag'])->name('page.tag');
 Route::get('/top-truyen/duoi-100-chuong', [IndexController::class, 'duoi100']);
 Route::get('/top-truyen/100-500-chuong', [IndexController::class, 'duoi500']);
 Route::get('/top-truyen/tren-500-chuong', [IndexController::class, 'tren500']);
+Route::post('/truyennoibat',[TruyenController::class, 'truyennoibat']);
+Route::post('/tab-danhmuc',[IndexController::class, 'tabdanhmuc']); 
+Route::post('/chontheloai',[IndexController::class, 'chontheloai']); 
 
-
-
-
-
-
-
-
+//admin
 Auth::routes();
 
 Route::get('/admincp', [App\Http\Controllers\HomeController::class, 'admincp'])->name('home');
@@ -43,6 +40,3 @@ Route::get('/admincp', [App\Http\Controllers\HomeController::class, 'admincp'])-
 Route::resource('/danhmuc', DanhmucController::class);
 Route::resource('/truyen', TruyenController::class);
 Route::resource('/chapter', ChapterController::class);
-Route::post('/truyennoibat',[TruyenController::class, 'truyennoibat']);
-Route::post('/tab-danhmuc',[IndexController::class, 'tabdanhmuc']); 
-Route::post('/chontheloai',[IndexController::class, 'chontheloai']); 

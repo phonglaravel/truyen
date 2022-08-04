@@ -21,18 +21,13 @@ class TruyenController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-       
+        $this->middleware('auth');    
     }
     public function index()
     {
-        $truyen = Truyen::with('thuocnhieudanhmuc')->orderBy('created_at', 'desc')->paginate(10);
-        
-        $danhmuc = Danhmuc::all();
-       
-        
+        $truyen = Truyen::with('thuocnhieudanhmuc')->orderBy('created_at', 'desc')->paginate(10);       
+        $danhmuc = Danhmuc::all();       
         return view('admincp.truyen.list', compact('truyen', 'danhmuc'));
-
     }
 
     /**
@@ -54,8 +49,6 @@ class TruyenController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $request->all();
-        // dd($data['danhmuc_id']);
         $data = $request->validate([
             'tentruyen' => 'required|unique:truyen',
             'tomtat' => 'required',
@@ -63,8 +56,7 @@ class TruyenController extends Controller
             'image' => 'required',
             'tacgia' => 'required',
             'trangthai' => 'required',
-            'tukhoa' => 'required',
-            
+            'tukhoa' => 'required',           
         ],[
             'tentruyen.required' => 'Không được để trống',
             'tentruyen.unique' => 'Truyện đã tồn tại',
@@ -86,39 +78,26 @@ class TruyenController extends Controller
                   $image = Str::random(5) . "_" . $name_file;
                   $file->move('image/posts', $image);
                 }
-           }
-        
-        
+           }       
         $truyen = new Truyen();
         $truyen->tentruyen = $request->tentruyen;
         $truyen->tukhoa = $request->tukhoa;
         $truyen->slug_truyen = Str::slug($request->tentruyen);
         $truyen->tomtat = $request->tomtat;
         $mang = $request->danhmuc_id;
-        foreach($mang as $key => $muc){
-            
-            
+        foreach($mang as $key => $muc){            
             $truyen->danhmuc_id = $mang[0];
-        }
-            
-        
-        
+        }  
         $truyen->image = $image;
         $truyen->kichhoat = $request->kichhoat;
         $truyen->truyen_noibat = $request->truyen_noibat;
         $truyen->tacgia = $request->tacgia;
         $truyen->luotxem = 0;
-        $truyen->trangthai = $request->trangthai;
-      
+        $truyen->trangthai = $request->trangthai;     
         $truyen->trangthai = $request->trangthai;
         $truyen->save();
         $truyen->thuocnhieudanhmuc()->attach($data['danhmuc_id']);
         return redirect()->route('truyen.index')->with('success', 'Thêm thành công');
-        
-
-
-
-
     }
 
     /**
@@ -156,40 +135,26 @@ class TruyenController extends Controller
     {
         $data = $request->validate([
             'tentruyen' => 'required|unique:truyen,tentruyen,'.$id,
-            'tomtat' => 'required',
-            
-            
+            'tomtat' => 'required',       
             'tacgia' => 'required',
-            'trangthai' => 'required'
-            
+            'trangthai' => 'required'        
         ],[
             'tentruyen.required' => 'Không được để trống',
             'tentruyen.unique' => 'Truyện đã tồn tại',
-            'tomtat.required' => 'Không được để trống',
-            
-            
+            'tomtat.required' => 'Không được để trống',        
             'tacgia.required' => 'Không được để trống',
-        ]);
-        
+        ]);      
         $truyen = Truyen::find($id);
         $truyen->tentruyen = $request->tentruyen;
         $truyen->slug_truyen = Str::slug($request->tentruyen);
         $truyen->tomtat = $request->tomtat;
-        $mang = $request->danhmuc_id;
-        
-            
-        
-        
-       
+        $mang = $request->danhmuc_id;           
         $truyen->kichhoat = $request->kichhoat;
-        $truyen->truyen_noibat = $request->truyen_noibat;
-        
+        $truyen->truyen_noibat = $request->truyen_noibat;     
         $truyen->tacgia = $request->tacgia;
         $truyen->luotxem = 0;
         $truyen->trangthai = $request->trangthai;
-        if ($request->image) {
-            
-            
+        if ($request->image) {  
             $get_name_image = $request->image->getClientOriginalName();
             $extension =$request->image->getClientOriginalExtension();
             if (strcasecmp($extension, 'jpg')=== 0
@@ -198,19 +163,16 @@ class TruyenController extends Controller
                   $nimage =Str::random(5). "_" . $get_name_image;
                 while (file_exists("image/post/". $nimage))
                   $nimage = Str::random(5) . "_" . $get_name_image;
-                  $request->image->move('image/posts', $nimage);
-                  
+                  $request->image->move('image/posts', $nimage);             
                     $image_path = 'image/posts/'.$truyen->image;
                     if (File::exists($image_path)) {
                     File::delete($image_path);
                     //unlink($image_path);
                 }
                   $truyen->image = $nimage;
-                }
-                
+                }          
            }
-        $truyen->save();
-        
+        $truyen->save();      
         return redirect()->route('truyen.index')->with('success', 'Thêm thành công');
     }
 
@@ -227,21 +189,16 @@ class TruyenController extends Controller
         $image_path = 'image/posts/'.$truyen->image;
         if (File::exists($image_path)) {
         File::delete($image_path);
-        //unlink($image_path);
         }
-        $truyen->delete();
-        
-      
+        $truyen->delete();   
         return redirect()->route('truyen.index')->with('success', 'Xóa thành công');
 
     }
     public function truyennoibat(Request $request)
     {
-        $data = $request->all();
-       
+        $data = $request->all();  
         $truyen = Truyen::find($data['truyen_id']);
-        $truyen->truyen_noibat = $data['truyennoibat'];
-        
+        $truyen->truyen_noibat = $data['truyennoibat'];      
         $truyen->save();
     }
 }

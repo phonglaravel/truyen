@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Danhmuc;
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule as ValidationRule;
 use Illuminate\Support\Str;
-
 
 class DanhmucController extends Controller
 {
@@ -39,15 +36,12 @@ class DanhmucController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        
+    {     
         $data = $request->validate([
-            'tendanhmuc' => 'required|unique:danhmuc',
-            
+            'tendanhmuc' => 'required|unique:danhmuc',           
             'kichhoat' => 'required'
         ],[
-            'tendanhmuc.required' => 'Tên danh mục không được để trống',
-            
+            'tendanhmuc.required' => 'Tên danh mục không được để trống',           
             'tendanhmuc.unique' => 'Tên danh mục đã tồn tại'
         ]);
         $danhmuc = new Danhmuc();
@@ -91,22 +85,16 @@ class DanhmucController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-       
+        $this->middleware('auth');     
     }
     public function update(Request $request, $id)
-    {
-        
-        $data = $request->validate([
-            
-            'tendanhmuc' => 'required|unique:danhmuc,tendanhmuc,'.$id,
-            
+    {      
+        $data = $request->validate([           
+            'tendanhmuc' => 'required|unique:danhmuc,tendanhmuc,'.$id,           
             'kichhoat' => 'required'
         ],[
-            'tendanhmuc.required' => 'Tên danh mục không được để trống',
-            
-            'tendanhmuc.unique' => 'Tên danh mục đã tồn tại'
-            
+            'tendanhmuc.required' => 'Tên danh mục không được để trống',         
+            'tendanhmuc.unique' => 'Tên danh mục đã tồn tại'            
         ]);
         $danhmuc = Danhmuc::find($id);
         $danhmuc->tendanhmuc = $data['tendanhmuc'];
@@ -127,6 +115,5 @@ class DanhmucController extends Controller
     {
         Danhmuc::find($id)->delete();
         return redirect()->route('danhmuc.index')->with('success', 'Xóa danh mục thành công');
-
     }
 }

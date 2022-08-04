@@ -130,8 +130,7 @@ class ChapterController extends Controller
         $chapter = Chapter::find($id);
         $chapter->truyen_id = $request->truyen_id;
         $chapter->tieude = $request->tieude;
-        $chapter->slug_chapter = Str::slug($request->tieude);
-        
+        $chapter->slug_chapter = Str::slug($request->tieude);       
         $chapter->tomtat = $request->tomtat;
         $chapter->noidung = $request->noidung;
         $chapter->kichhoat = $request->kichhoat;

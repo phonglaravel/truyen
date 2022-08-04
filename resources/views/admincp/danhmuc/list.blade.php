@@ -6,15 +6,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Danh sách danh mục</div>
-                
-
                 <div class="card-body">
                     @if (session('success'))
                         <div class="alert alert-success" role="alert">
                             {{ session('success') }}
                         </div>
                     @endif
-
                     <table class="table">
                         <thead>
                           <tr>
@@ -46,15 +43,12 @@
                             @csrf
                             @method('delete')
                             <button class="btn btn-primary" type="submit">Xóa</button>
-
                             </form></th>
-
                           </tr>
                           @endforeach
                         </tbody>
                       </table>
-                      <nav> {{ $danhmuc->links() }}
-                        
+                      <nav> {{ $danhmuc->links() }}                        
                       </nav>
                 </div>
             </div>
