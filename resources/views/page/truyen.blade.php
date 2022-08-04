@@ -12,13 +12,8 @@
 </div>
 
 <div>
-    <div class="container">
-        
-        <div class="row" style="overflow: hidden;
-        
-        
-        
-        width: 100%;">
+    <div class="container">    
+        <div class="row" style="overflow: hidden;width: 100%;">
             <div class="col-md-9 col-sm-12">
                 <div class="hot-list-tittle">
                     <h2>
@@ -52,9 +47,7 @@
                             <h3 style="text-transform: uppercase">{{$truyen->tentruyen}}</h3>
                         </div>
                         <div class="tomtat" >
-                            {!!$truyen->tomtat!!}
-                            
-                            
+                            {!!$truyen->tomtat!!}                     
                         </div>
                         <div style="text-align: right">
                             <button type="button" class="btn btn-link xemthem">Xem thêm</button>
@@ -163,26 +156,6 @@
             <i class="bi bi-arrow-right-circle"></i>
         </h2>
     </div>
-    {{-- <div class="row done-list">
-        @foreach ($truyenfull as $item)
-        <div class="col-md-2 col-lg-2 col-sm-3 col-4 ">
-            <div class="done-item top-10 card-product" itemscope="" itemtype="https://schema.org/Book">
-                <a href="" itemprop="url">
-                    <img src="{{asset('image/posts/'.$item->image)}}"
-                        alt="" class="img-responsive item-img" itemprop="image">
-                    <div class="title">
-                        <h3 itemprop="name">{{$item->tentruyen}}</h3>
-                    </div>
-                    <div class="sochuongfull">
-                        <small>Full - 165 chuong</small>
-                    </div>
-                </a>
-            </div>
-        </div> --}}
-        {{-- @endforeach --}}
-        
-        
-
     </div>
 </div>
 <input type="hidden" value="{{$truyen->tentruyen}}" class="nametruyen">
