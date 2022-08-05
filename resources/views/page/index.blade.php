@@ -64,7 +64,7 @@
                     <div class="ab2 breadcrumb-container col-md-3 col-sm-3 d-none d-sm-block d-md-block d-lg-block">
                         <h3>
                             @foreach ($item->truyen->thuocnhieudanhmuc as $it)
-                            <a id="f2" itemprop="genre" href="" title="Ngôn Tình">{{$it->tendanhmuc}}, </a>
+                            <a id="f2" itemprop="genre" href="{{route('page.theloai',$it->slug_danhmuc)}}" title="Ngôn Tình">{{$it->tendanhmuc}}, </a>
                             @endforeach
                             {{-- @foreach()
                                 

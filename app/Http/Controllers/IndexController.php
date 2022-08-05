@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function home(Request $request)
     {
         Carbon::setLocale('vi');     
-        $truyenhot = Truyen::with('danhmuctruyen')->where('truyen_noibat', 1)->take(12)->get();
+        $truyenhot = Truyen::orderBy('id','DESC')->with('danhmuctruyen')->where('truyen_noibat', 1)->take(12)->get();
         $truyenhot5 = Truyen::with('danhmuctruyen')->where('truyen_noibat', 1)->take(5)->get();  
         $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $truyenmoi = Chapter::with('truyen')->orderBy('created_at', 'DESC')->take(25)->get();

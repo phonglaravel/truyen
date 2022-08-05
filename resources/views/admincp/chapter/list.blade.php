@@ -11,6 +11,7 @@
                   {{ session('') }}
                </div>
                @endif
+               <a class="btn btn-success" href="{{route('chapter.create')}}">Add</a>
                <table class="table">
                   <thead>
                      <tr>

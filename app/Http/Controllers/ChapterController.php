@@ -29,7 +29,7 @@ class ChapterController extends Controller
      */
     public function create()
     {
-        $truyen = Truyen::all();
+        $truyen = Truyen::orderBy('id','DESC')->get();
         return view('admincp.chapter.create', compact('truyen'));
     }
 
