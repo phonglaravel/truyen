@@ -52,11 +52,8 @@
                             @endforeach                         
                             </select>
                         </form>
-                        
-
                     </h2>
                 </div>
-
                 @foreach ($truyenmoi as $item)
                 <div class="thongtin-item row">
                    
