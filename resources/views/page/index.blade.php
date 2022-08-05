@@ -9,23 +9,9 @@
     <div class="container">
         <div class="hot-list-tittle">
             <h2>
-                <a href="https://truyenfull.vn/danh-sach/truyen-hot/">Truyen hot</a>
+                <a style="pointer-events: none;" href="https://truyenfull.vn/danh-sach/truyen-hot/">Truyện hot</a>
                 <i class="bi bi-pencil-fill"></i>
-                <form>
-                    @csrf
-                    <select name="danhmuc" class="btn btn-secondary dropdown-toggle select-theloai"  id="dropdownMenuButton2"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <option value="">Tất cả</option>
-                    @foreach ($theloai as $item)
-                    <option value="{{$item->id}}">{{$item->tendanhmuc}}</option>
-                    @endforeach
-                    
-                    
-                </select>
-                </form>
-
             </h2>
-
         </div>
         <div class="hot-list-card" style="display: block;">
             <div class="row">
@@ -42,13 +28,7 @@
                         </a>
                     </div>
                 </div> 
-                @endforeach
-                
-
-               
-
-
-                
+                @endforeach              
             </div>
         </div>
     </div>
@@ -60,7 +40,7 @@
             <div class="row-new col-md-9 col-sm-12">
                 <div class="new-tittle">
                     <h2>
-                        <a href="https://truyenfull.vn/danh-sach/truyen-moi/">Truyen moi cap nhat</a>
+                        <a href="">Truyện mới cập nhật</a>
                         <i class="bi bi-pencil-fill"></i>
                         <form>
                             @csrf
@@ -69,10 +49,8 @@
                             <option>Tất cả</option>
                             @foreach ($theloai as $item)
                             <option value="{{Request::url()}}?id={{$item->id}}">{{$item->tendanhmuc}}</option>
-                            @endforeach
-                            
-                            
-                        </select>
+                            @endforeach                         
+                            </select>
                         </form>
                         
 
@@ -120,7 +98,7 @@
 <div class=" container dahoanthanh">
     <div class="done-tittle">
         <h2>
-            <a href="https://truyenfull.vn/danh-sach/truyen-full/">Truyen Da hoan thanh</a>
+            <a href="https://truyenfull.vn/danh-sach/truyen-full/">Truyện đã hoàn thành</a>
             <i class="bi bi-arrow-right-circle"></i>
         </h2>
     </div>

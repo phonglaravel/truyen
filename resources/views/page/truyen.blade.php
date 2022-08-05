@@ -76,7 +76,7 @@
                             <span><a class="btn btn-primary" href="{{route('page.docchapter',$chapcuoi->slug_chapter)}}" role="button">Đọc mới nhất</a></span>
                             
                             @endif
-                            <span><button type="button" class="btn btn-danger thich-truyen">Yêu thích</button></span>
+                            <span id="thich"></span>
                             
                         </div>
                            
@@ -137,12 +137,14 @@
                 <div class="dangdoc" id="yeuthich">
                     <div class="dangdoc-tittle">
                         <h2>Truyện yêu thích</h2>
+                        
                     </div>
                     
                         
                     
                   
                 </div>
+                <button id="clearlike">Xóa yêu thích</button>
                 @include('page.menu')
             </div>
         </div>
@@ -163,6 +165,7 @@
 <input type="hidden" value="{{\URL::current()}}" class="urltruyen">
 <script type="text/javascript">
 $(document).ready(function(){
+
    height = $(".tomtat").height();
    if (height <= 210) {
     $(".xemthem").css({ 'display': 'none'});
@@ -181,10 +184,9 @@ $(document).ready(function(){
 <script type="text/javascript">  
    show();
    function show() {
+    let idd = $(".idtruyen").val();
     if(localStorage.getItem('truyenyeuthich')!=null){
         var data = JSON.parse(localStorage.getItem('truyenyeuthich'));
-        
-        data.reverse();
         for (let i = 0; i < data.length; i++) {
             var title = data[i].title;
             var id = data[i].id;
@@ -199,8 +201,26 @@ $(document).ready(function(){
                 `);
             
         }
+    }else{
+        localStorage.setItem('truyenyeuthich','[]');
     }
+    var old_data = JSON.parse(localStorage.getItem('truyenyeuthich'));
+           
+            var matches = $.grep(old_data, function(obj){
+                return obj.id == idd;
+            })
+            if (matches.length) {
+                $('thich').empty()
+                $('#thich').append(`<button type="button" class="btn btn-danger thich-truyen">Đã thích</button>`);
+            }else{
+                $('thich').empty()
+                $('#thich').append(`<button type="button" class="btn btn-primary thich-truyen">Yêu thích</button>`);
+            }
    }
+        $('#clearlike').click(function(){
+            localStorage.removeItem('truyenyeuthich')
+            location.reload()
+        })
         $(".thich-truyen").click(function(){
             const title = $(".nametruyen").val();
             const id = $(".idtruyen").val();
@@ -226,7 +246,8 @@ $(document).ready(function(){
                 }else{
                     alert ('Đã đạt giới hạn lưu vào yêu thích');
                 }
-                $( ".thich-truyen" ).addClass( "btn-warning" ).removeClass("btn-danger");
+                $('#thich').empty()
+                $('#thich').append('<button type="button" class="btn btn-danger thich-truyen">Đã thích</button>');
                 $('#yeuthich').append(`<div class="dangdoc-item" >
                 <div class="abc col-lg-12">
                     <h3>

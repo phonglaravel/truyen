@@ -16,14 +16,14 @@ class IndexController extends Controller
         Carbon::setLocale('vi');     
         $truyenhot = Truyen::with('danhmuctruyen')->where('truyen_noibat', 1)->take(12)->get();
         $truyenhot5 = Truyen::with('danhmuctruyen')->where('truyen_noibat', 1)->take(5)->get();  
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $truyenmoi = Chapter::with('truyen')->orderBy('created_at', 'DESC')->take(25)->get();
         $truyenfull = Truyen::with('chapter')->where('trangthai', 1)->take(12)->get();  
         return view('page.index', compact('truyenhot','theloai', 'truyenmoi', 'truyenfull','truyenhot5'));
     }
     public function doctruyen($slug)
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();        
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();        
         $truyen = Truyen::with('danhmuctruyen','thuocnhieudanhmuc')->where('slug_truyen', $slug)->where('kichhoat', 0)->first();
         $chapter = Chapter::orderBy('id', 'ASC')->where('truyen_id',$truyen->id)->paginate(50);
         // $chapter_dau = Chapter::with('truyen')->orderBy('id', 'ASC')->where('truyen_id',$truyen->id)->first();
@@ -36,7 +36,7 @@ class IndexController extends Controller
     public function docchapter($slug)
     {        
         $truyen = Chapter::with('truyen')->where('slug_chapter',$slug)->first();
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();       
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();       
         $allchap = Chapter::with('truyen')->orderBy('id', 'ASC')->where('truyen_id', $truyen->truyen_id)->get();
         $nchap = Chapter::where('truyen_id', $truyen->truyen_id)->where('id', '>', $truyen->id)->min('slug_chapter');
         $pchap = Chapter::where('truyen_id', $truyen->truyen_id)->where('id', '<', $truyen->id)->max('slug_chapter');
@@ -46,7 +46,7 @@ class IndexController extends Controller
     }
     public function theloai($slug)
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $theloaimain = Danhmuc::where('slug_danhmuc',$slug)->first();
         $truyentheloai = Thuocdanhmuc::where('danhmuc_id',$theloaimain->id)->get();
         $nhieutheloai = [];
@@ -58,7 +58,7 @@ class IndexController extends Controller
     }
     public function search()
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $tukhoa = $_GET['tukhoa'];
         $truyen = Truyen::with('danhmuctruyen')->where('tentruyen','LIKE', '%'.$tukhoa.'%')
         ->orWhere('tomtat','LIKE', '%'.$tukhoa.'%')
@@ -67,7 +67,7 @@ class IndexController extends Controller
     }
     public function tag($tag)
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $tags = explode("-",$tag);
         $truyen = Truyen::with('thuocnhieudanhmuc')->where(
             function ($query) use($tags){
@@ -80,7 +80,7 @@ class IndexController extends Controller
     }
     public function duoi100()
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $alltruyen = Truyen::with('chapter')->orderBy('id', 'DESC')->get();
         $truyen = array();
         foreach($alltruyen as $key => $tr){
@@ -92,7 +92,7 @@ class IndexController extends Controller
     }
     public function duoi500()
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $alltruyen = Truyen::with('chapter')->orderBy('id', 'DESC')->get();
         $truyen = array();
         foreach($alltruyen as $key => $tr){
@@ -104,7 +104,7 @@ class IndexController extends Controller
     }
     public function tren500()
     {
-        $theloai = Danhmuc::orderBy('id', 'DESC')->get();
+        $theloai = Danhmuc::orderBy('id', 'ASC')->get();
         $alltruyen = Truyen::with('chapter')->orderBy('id', 'DESC')->get();
         $truyen = array();
         foreach($alltruyen as $key => $tr){
