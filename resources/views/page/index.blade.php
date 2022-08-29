@@ -75,7 +75,7 @@
                         </h3>
                     </div>
                     <div class="ab3 breadcrumb-container col-md-2 col-sm-3 col-3 col-xs-3">
-                        <h3><a href="" title=""><span class="chapter-text">{{$item->tieude}}</span></a></h3>
+                        <h3><a href="{{route('page.docchapter',$item->slug_chapter)}}" title=""><span class="chapter-text">{{$item->tieude}}</span></a></h3>
                     </div>
                     <div class="ab4 breadcrumb-container col-md-2 d-none d-md-block d-lg-block">
                         <h3>{{$item->created_at->diffForHumans()}}</h3>
