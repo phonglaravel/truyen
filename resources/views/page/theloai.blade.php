@@ -25,12 +25,12 @@
                 <h4>Truyện đang cập nhật...</h4>
                 @else
                 @foreach ($truyen as $item)
-                <div class="row tenvatacgia">
-                    <div class="ohinhanh1 col-md-3 col-lg-3 col-sm-3 col-3">
-                        <div class="ohinhanh">
-                            <img src=""
+                <div class="row tenvatacgia overflow-hidden">
+                    <div class="ohinhanh1 col-md-3 col-lg-3 col-sm-3 col-3 ">
+                        
+                            <img src="{{asset('image/posts/'.$item->image)}}"
                                 class="cover" alt="">
-                        </div>
+                       
                     </div>
                     <div class="truyenhot col-md-7 col-lg-7 col-sm-6 col-6">
                         <div class="cangiua">

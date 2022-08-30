@@ -30,8 +30,7 @@
                         </div>
                         <div class="tacgia" style="margin-left: 30px">
                             
-                            <span style="font-weight: 600">Thể loại: </span>@foreach($truyen->thuocnhieudanhmuc as $item)<span>{{$item->tendanhmuc}},</span>
-                            @endforeach
+                            <span style="font-weight: 600">Thể loại: </span><span>{{$truyen->thuocnhieudanhmuc->implode('tendanhmuc', ',')}}</span>
                         </div>
                         <div class="tacgia" style="margin-left: 30px">
                             <span style="font-weight: 600">Trạng thái : </span><span>@if ($truyen->trangthai==0)
